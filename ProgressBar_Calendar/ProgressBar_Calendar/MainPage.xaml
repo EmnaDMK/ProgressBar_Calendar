@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ProgressBar_Calendar"
+             x:Class="ProgressBar_Calendar.MainPage">
+    <StackLayout>
+        <StackLayout Padding ="30">
+        <Slider x:Name="MainSlider" Minimum="0" Maximum="100" ValueChanged="MainSlider_OnValueChanged"></Slider>
+        <Grid  ColumnSpacing="10">
+
+            <Grid.RowDefinitions>
+
+                <RowDefinition Height="*" />
+
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+
+                <ColumnDefinition Width="*" />
+
+                <ColumnDefinition Width="*" />
+
+                <ColumnDefinition Width="*" />
+
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" Text="0"  FontSize="20"  HorizontalOptions="Start"/>
+            <Label  x:Name="Mainlabel" Grid.Row="0" Grid.Column="1" FontSize="20"  HorizontalOptions="Center"  TextColor="#ff4081"/>
+        <Label Grid.Row="0" Grid.Column="2" Text="100"  FontSize="20"  HorizontalOptions="End"/>
+        </Grid>
+    </StackLayout>
+    <StackLayout>
+            <Switch x:Name="MainSwitch" HorizontalOptions="Center" ></Switch>
+        <Label x:Name="Switchlabel" Text="{Binding isToggled, Source= {x:Reference MainSwitch}}" TextColor="#ff4081" ></Label>
+    </StackLayout>
+        <!--<StackLayout>
+            <DatePicker  x:Name="MainDate" MinimumDate="1/1/2018" MaximumDate="31/12/2018" DateSelected="DatePikker" ></DatePicker>
+            <Label x:Name="Datelabel" Text="{Binding Date, Source= {x:Reference MainDate}}" TextColor="#ff4081" ></Label>
+        </StackLayout>-->
+
+        
+
+
+        <DatePicker x:Name="StartDatePicker" Format="dd/MM/yyyy" Date="10/3/2018" MinimumDate="{Binding Item.StartDate}" />
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <Label Text="Start Time" Grid.Row="0" Grid.Column="0"/>
+            <TimePicker x:Name="StartTime" Time="{Binding Item.StartTime}" Grid.Row="1" Grid.Column="0"/>
+
+            <Label Text="End Time" Grid.Row="0" Grid.Column="1"/>
+            <TimePicker x:Name="EndTime" Time="{Binding Item.EndTime}" Grid.Row="1" Grid.Column="1"/>
+        </Grid>
+    </StackLayout>
+    <!--<Progress Bar Code
+   <Grid>
+        <Label Text="Welcome to Xamarin.Forms!"></Label>
+
+
+
+            <ProgressBar x:Name="MainProgressBar"
+                         Progress= "0.2"
+                        WidthRequest="300"
+                         HeightRequest="20" 
+                         VerticalOptions="Center"
+                         HorizontalOptions="Center" />
+  
+        <Label x:Name="Mainlabel" 
+               Text="{Binding Progress, Source= {x:Reference MainProgressBar}}"
+               VerticalOptions="End" 
+               HorizontalOptions="Center"
+               TextColor="Black" />
+
+    </Grid>-->
+   
+    
+</ContentPage>
